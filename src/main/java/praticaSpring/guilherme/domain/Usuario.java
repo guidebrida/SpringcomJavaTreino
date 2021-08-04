@@ -17,10 +17,8 @@ public class Usuario  implements Serializable {
     private Integer id;
     private String name;
     private String email;
-
     public Usuario() {
     }
-
     public Usuario(Integer id, String name, String email) {
         this.id = id;
         this.name = name;
