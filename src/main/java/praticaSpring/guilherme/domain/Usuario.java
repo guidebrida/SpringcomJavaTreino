@@ -23,6 +23,12 @@ public class Usuario  implements Serializable {
     private List<Postagem> Postagem = new ArrayList<>();
 
 
+    @OneToMany( mappedBy = "usuario")
+    private List<Comentario> Comentario = new ArrayList<>();
+
+
+
+
 
 
     public Usuario() {
@@ -40,6 +46,14 @@ public class Usuario  implements Serializable {
 
     public void setPostagem(List<praticaSpring.guilherme.domain.Postagem> postagem) {
         Postagem = postagem;
+    }
+
+    public List<praticaSpring.guilherme.domain.Comentario> getComentario() {
+        return Comentario;
+    }
+
+    public void setComentario(List<praticaSpring.guilherme.domain.Comentario> comentario) {
+        Comentario = comentario;
     }
 
     public Integer getId() {

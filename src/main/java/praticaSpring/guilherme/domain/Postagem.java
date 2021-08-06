@@ -26,6 +26,9 @@ public class Postagem implements Serializable {
     @JoinColumn(name = "usuario_id")
     private Usuario usuario;
 
+    @OneToMany( mappedBy = "postagem")
+    private List<Comentario> Comentario = new ArrayList<>();
+
 
     public Postagem() {
     }
@@ -37,6 +40,14 @@ public class Postagem implements Serializable {
         this.body = body;
     }
 
+
+    public List<praticaSpring.guilherme.domain.Comentario> getComentario() {
+        return Comentario;
+    }
+
+    public void setComentario(List<praticaSpring.guilherme.domain.Comentario> comentario) {
+        Comentario = comentario;
+    }
 
     public Usuario getUsuario() {
         return usuario;

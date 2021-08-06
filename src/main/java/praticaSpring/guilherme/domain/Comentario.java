@@ -1,9 +1,8 @@
 package praticaSpring.guilherme.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
@@ -19,6 +18,16 @@ public class Comentario  implements Serializable {
     private LocalDateTime instante;
 
 
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "usuario_id")
+    private Usuario usuario;
+
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "postagem_id")
+    private Postagem postagem;
+
     public Comentario() {
     }
 
@@ -26,6 +35,22 @@ public class Comentario  implements Serializable {
         this.id = id;
         this.text = text;
         this.instante = LocalDateTime.now();
+    }
+
+    public Postagem getPostagem() {
+        return postagem;
+    }
+
+    public void setPostagem(Postagem postagem) {
+        this.postagem = postagem;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
     public Integer getId() {

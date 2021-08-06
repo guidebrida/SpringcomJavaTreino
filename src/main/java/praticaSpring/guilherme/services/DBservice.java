@@ -46,6 +46,20 @@ public class DBservice {
         postagem2.setUsuario(usuario2);
         postagem3.setUsuario(usuario1);
 
+        usuario1.getComentario().addAll(Arrays.asList(comentario1));
+        usuario2.getComentario().addAll(Arrays.asList(comentario2));
+
+        comentario1.setUsuario(usuario1);
+        comentario2.setUsuario(usuario2);
+
+        postagem1.getComentario().addAll(Arrays.asList(comentario1));
+        postagem2.getComentario().addAll(Arrays.asList(comentario2));
+
+        comentario1.setPostagem(postagem1);
+        comentario2.setPostagem(postagem2);
+
+
+
 
         usuarioRepository.saveAll(Arrays.asList(usuario1, usuario2, usuario3));
         postagemRepository.saveAll(Arrays.asList(postagem1, postagem2, postagem3));
