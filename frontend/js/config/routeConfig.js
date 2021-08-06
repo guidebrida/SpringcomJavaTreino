@@ -10,6 +10,12 @@ angular.module("appPostagens").config(function($routeProvider, $locationProvider
         templateUrl: './view/inicio.html',
         controller: "usuariosCtrl",
     });
+    $locationProvider.hashPrefix('');
+    $routeProvider.when("/postagens", {
+        templateUrl: './view/postagens.html',
+        controller: "postagensCtrl",
+    });
+
 
 
     $routeProvider.otherwise({
