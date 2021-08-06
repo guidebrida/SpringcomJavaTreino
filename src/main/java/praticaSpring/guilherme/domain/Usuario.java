@@ -1,10 +1,11 @@
 package praticaSpring.guilherme.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -17,12 +18,28 @@ public class Usuario  implements Serializable {
     private Integer id;
     private String name;
     private String email;
+
+    @OneToMany( mappedBy = "usuario")
+    private List<Postagem> Postagem = new ArrayList<>();
+
+
+
+
     public Usuario() {
     }
     public Usuario(Integer id, String name, String email) {
         this.id = id;
         this.name = name;
         this.email = email;
+    }
+
+
+    public List<praticaSpring.guilherme.domain.Postagem> getPostagem() {
+        return Postagem;
+    }
+
+    public void setPostagem(List<praticaSpring.guilherme.domain.Postagem> postagem) {
+        Postagem = postagem;
     }
 
     public Integer getId() {

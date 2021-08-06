@@ -11,7 +11,7 @@ import praticaSpring.guilherme.services.PostagemService;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/postagem")
+@RequestMapping(value = "/postagens")
 public class PostagemResource {
 
 

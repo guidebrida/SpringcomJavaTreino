@@ -12,7 +12,7 @@ import praticaSpring.guilherme.services.ComentarioService;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/comentario")
+@RequestMapping(value = "/comentarios")
 public class ComentarioResource {
 
     @Autowired

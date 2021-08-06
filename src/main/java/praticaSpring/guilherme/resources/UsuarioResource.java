@@ -10,7 +10,7 @@ import praticaSpring.guilherme.services.UsuarioService;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/usuario")
+@RequestMapping(value = "/usuarios")
 public class UsuarioResource {
 
     @Autowired

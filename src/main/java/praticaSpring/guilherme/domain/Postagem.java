@@ -1,11 +1,11 @@
 package praticaSpring.guilherme.domain;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Postagem implements Serializable {
@@ -19,6 +19,14 @@ public class Postagem implements Serializable {
     private String titulo;
     private String body;
 
+
+
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "usuario_id")
+    private Usuario usuario;
+
+
     public Postagem() {
     }
 
@@ -27,6 +35,15 @@ public class Postagem implements Serializable {
         this.instante = LocalDateTime.now();
         this.titulo = titulo;
         this.body = body;
+    }
+
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
     public Integer getId() {
@@ -60,4 +77,7 @@ public class Postagem implements Serializable {
     public void setBody(String body) {
         this.body = body;
     }
+
+
+
 }
