@@ -3,7 +3,7 @@ angular.module("appPostagens").controller("usuariosCtrl", function ($scope, usua
 
 
     var carregarUsuarios = function () {
-        usuarioAPI.getUsuarios(function (retorno) {
+        usuarioAPI.getUsuarios().then(function (retorno) {
             $scope.usuarios = retorno.data;
         });
     };
