@@ -1,4 +1,22 @@
+<div class="jumbotron">
+
+    <table class="table table-striped table-dark">
+        <tr>
+            <td>ID</td>
+            <td>Data</td>
+            <td>Titulo</td>
+            <td>Corpo</td>
+            <td>Comentarios</td>
+        </tr>
+        <tr ng-repeat="post in postagens">
+            <td>{{post.id}}</td>
+            <td>{{post.instante}}</td>
+            <td>{{post.titulo}}</td>
+            <td>{{post.body}}</td>
+            <td>{{formatarComentarios(post)}}</td>
+        </tr>
+    </table>
+        
 
 
-
-<h1>teste</h1>
+    </div>
