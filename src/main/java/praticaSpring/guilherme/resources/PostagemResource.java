@@ -4,10 +4,12 @@ package praticaSpring.guilherme.resources;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import praticaSpring.guilherme.domain.Postagem;
 import praticaSpring.guilherme.domain.Usuario;
 import praticaSpring.guilherme.services.PostagemService;
 
+import java.net.URI;
 import java.util.List;
 
 @RestController
@@ -30,6 +32,18 @@ public class PostagemResource {
         return ResponseEntity.ok().body(list);
 
     }
+
+    @PostMapping
+    public ResponseEntity<Usuario> insert(@RequestBody Postagem postagem){
+        postagem = service.insert(postagem);
+        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(postagem.getId()).toUri();
+        return ResponseEntity.created(uri).build();
+    }
+
+
+
+
+
 
 
 }
