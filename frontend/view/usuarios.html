@@ -20,3 +20,23 @@
 </table>
 </div>
 
+<div>
+    <h1>Novo usuario</h1>
+<form name="newUserForm"  ng-controller="usuariosCtrl">
+    <label for="Nome"></label>
+    <input type="text" class="form-control" ng-model="us.name" placeholder="Nome">
+
+    <label for="Email"></label>
+    <input type="text" class="form-control" ng-model="us.email" placeholder="Email">
+
+    <button id="enviar" type="submit" class="btn btn-primary btn-block"  ng-click="adicionarUsuario(us)">Adicionar Novo Usuario</button>
+
+
+
+
+
+</form>
+</div>
+
+
+

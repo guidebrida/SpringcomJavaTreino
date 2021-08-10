@@ -1,8 +1,6 @@
-angular.module("appPostagens").controller("usuariosCtrl", function ($scope, usuarioAPI) {
+angular.module("appPostagens").controller("usuariosCtrl", function ($scope, usuarioAPI, $route) {
     $scope.app = "appPostagens";
     $scope.us = {};
-
-
 
     var _formatarusuarios = function (us) {
         return us.postagem
@@ -12,12 +10,18 @@ angular.module("appPostagens").controller("usuariosCtrl", function ($scope, usua
             .join(", ");
     };
 
-
-
-
     var carregarUsuarios = function () {
         usuarioAPI.getUsuarios().then(function (retorno) {
             $scope.usuarios = retorno.data;
+        });
+    };
+
+    $scope.adicionarUsuario = function (us) {
+        usuarioAPI.postUsuarios(us).then(function (data) {
+            delete $scope.us;
+            $scope.newUserForm.$setPristine();
+            carregarUsuarios();          
+            $route.reload()
         });
     };
 

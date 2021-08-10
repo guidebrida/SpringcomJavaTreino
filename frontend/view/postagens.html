@@ -10,7 +10,7 @@
         </tr>
         <tr ng-repeat="post in postagens">
             <td>{{post.id}}</td>
-            <td>{{post.instante}}</td>
+            <td>{{post.instante  | date:'dd/MM/yyyy HH:mm'}}</td>
             <td>{{post.titulo}}</td>
             <td>{{post.body}}</td>
             <td>{{formatarComentarios(post)}}</td>
