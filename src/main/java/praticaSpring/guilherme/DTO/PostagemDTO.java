@@ -3,7 +3,7 @@ package praticaSpring.guilherme.DTO;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
-public class PostagemNewDTO implements Serializable {
+public class PostagemDTO implements Serializable {
     private static final long serialVersionUID = 1L;
 
 
@@ -12,13 +12,13 @@ public class PostagemNewDTO implements Serializable {
     private Integer usuarioId;
     private String body;
 
-    public PostagemNewDTO() {
+    public PostagemDTO() {
     }
 
-    public PostagemNewDTO(String titulo,Integer usuarioId, String body) {
+    public PostagemDTO(String titulo, LocalDateTime instante, Integer usuarioId, String body) {
         this.titulo = titulo;
+        this.instante = instante;
         this.usuarioId = usuarioId;
-        this.instante = LocalDateTime.now();
         this.body = body;
     }
 

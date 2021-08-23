@@ -11,6 +11,7 @@ public class UsuarioNewDTO implements Serializable {
     private String name;
     private String email;
 
+
     public UsuarioNewDTO() {
     }
 

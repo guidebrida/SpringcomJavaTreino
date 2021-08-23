@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+import praticaSpring.guilherme.DTO.UsuarioNewDTO;
 import praticaSpring.guilherme.domain.Usuario;
 import praticaSpring.guilherme.services.UsuarioService;
 
@@ -32,12 +33,17 @@ public class UsuarioResource {
     }
 
     @PostMapping
-    public ResponseEntity<Usuario> insert(@RequestBody Usuario usuario){
-        usuario = service.insert(usuario);
+    public ResponseEntity<Usuario> insert(@RequestBody UsuarioNewDTO objDTO){
+        Usuario usuario = service.insert(objDTO);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(usuario.getId()).toUri();
         return ResponseEntity.created(uri).build();
     }
 
+    @DeleteMapping(value = "/id")
+    public ResponseEntity<Void> delete(@PathVariable Integer id) {
+        service.delete(id);
+        return ResponseEntity.noContent().build();
+    }
 
 
 

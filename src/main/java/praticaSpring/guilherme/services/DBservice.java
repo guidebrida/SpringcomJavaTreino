@@ -31,9 +31,10 @@ public class DBservice {
         Usuario usuario2 = new Usuario(null, "mario", "mario@gmail.com");
         Usuario usuario3 = new Usuario(null, "João", "joao@gmail.com");
 
-        Postagem postagem1 = new Postagem(null,"porta", "title");
+        Postagem postagem1 = new Postagem(null, "porta", "title");
         Postagem postagem2 = new Postagem(null, "pneu", "titatata");
-        Postagem postagem3 = new Postagem(null, "GODGOD" ,"god of war");
+        Postagem postagem3 = new Postagem(null, "GODGOD", "god of war");
+        Postagem postagem4 = new Postagem(null, "RIBAMAR", "VASCO");
 
         Comentario comentario1 = new Comentario(null, "Horrivel");
         Comentario comentario2 = new Comentario(null, "Topzera e os guri!!!");
@@ -41,10 +42,12 @@ public class DBservice {
 
         usuario1.getPostagem().addAll(Arrays.asList(postagem1, postagem3));
         usuario2.getPostagem().addAll(Arrays.asList(postagem2));
+        usuario3.getPostagem().addAll(Arrays.asList(postagem4));
 
         postagem1.setUsuario(usuario1);
         postagem2.setUsuario(usuario2);
         postagem3.setUsuario(usuario1);
+        postagem4.setUsuario(usuario3);
 
         usuario1.getComentario().addAll(Arrays.asList(comentario1));
         usuario2.getComentario().addAll(Arrays.asList(comentario2));
@@ -59,10 +62,8 @@ public class DBservice {
         comentario2.setPostagem(postagem2);
 
 
-
-
         usuarioRepository.saveAll(Arrays.asList(usuario1, usuario2, usuario3));
-        postagemRepository.saveAll(Arrays.asList(postagem1, postagem2, postagem3));
+        postagemRepository.saveAll(Arrays.asList(postagem1, postagem2, postagem3, postagem4));
         comentarioRepository.saveAll(Arrays.asList(comentario1, comentario2));
     }
 }

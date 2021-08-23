@@ -26,24 +26,25 @@ public class PostagemResource {
         Postagem obj = service.find(id);
         return ResponseEntity.ok().body(obj);
     }
+
     @GetMapping
-    public ResponseEntity<List<Postagem>>findAll(){
+    public ResponseEntity<List<Postagem>> findAll() {
         List<Postagem> list = service.findAll();
         return ResponseEntity.ok().body(list);
 
     }
 
     @PostMapping
-    public ResponseEntity<Usuario> insert(@RequestBody Postagem postagem){
-        postagem = service.insert(postagem);
+    public ResponseEntity<Usuario> insert(@RequestBody Postagem objDTO) {
+        Postagem postagem = service.insert(objDTO);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(postagem.getId()).toUri();
         return ResponseEntity.created(uri).build();
     }
 
-
-
-
-
-
+    @DeleteMapping(value = "/id")
+    public ResponseEntity<Void> delete(@PathVariable Integer id) {
+        service.delete(id);
+        return ResponseEntity.noContent().build();
+    }
 
 }

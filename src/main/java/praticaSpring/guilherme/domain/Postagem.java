@@ -11,15 +11,12 @@ import java.util.List;
 public class Postagem implements Serializable {
     private static final long serialVersionUID = 1L;
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private LocalDateTime instante;
+    private LocalDateTime instante  = LocalDateTime.now();
     private String titulo;
     private String body;
-
-
 
     @JsonIgnore
     @ManyToOne
@@ -35,17 +32,16 @@ public class Postagem implements Serializable {
 
     public Postagem(Integer id,String titulo, String body) {
         this.id = id;
-        this.instante = LocalDateTime.now();
         this.titulo = titulo;
         this.body = body;
     }
 
 
-    public List<praticaSpring.guilherme.domain.Comentario> getComentario() {
+    public List<Comentario> getComentario() {
         return Comentario;
     }
 
-    public void setComentario(List<praticaSpring.guilherme.domain.Comentario> comentario) {
+    public void setComentario(List<Comentario> comentario) {
         Comentario = comentario;
     }
 

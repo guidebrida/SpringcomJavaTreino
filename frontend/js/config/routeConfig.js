@@ -15,6 +15,16 @@ angular.module("appPostagens").config(function($routeProvider, $locationProvider
         templateUrl: './view/postagens.html',
         controller: "postagensCtrl",
     });
+    $locationProvider.hashPrefix('');
+    $routeProvider.when("/novaPostagem", {
+        templateUrl: './view/novaPostagem.html',
+        controller: "postagensCtrl",
+    });
+    $locationProvider.hashPrefix('');
+    $routeProvider.when("/adicionarComentarios", {
+        templateUrl: './view/adicionarComentarios.html',
+        controller: "postagensCtrl",
+    });
 
 
 

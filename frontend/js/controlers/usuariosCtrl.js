@@ -2,6 +2,7 @@ angular.module("appPostagens").controller("usuariosCtrl", function ($scope, usua
     $scope.app = "appPostagens";
     $scope.us = {};
 
+
     var _formatarusuarios = function (us) {
         return us.postagem
             .map(function (postagem) {

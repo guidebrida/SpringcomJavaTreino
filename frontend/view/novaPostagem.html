@@ -1,0 +1,22 @@
+<link rel="stylesheet" href="../css/novoUsuario.css">
+
+<h1 style="text-align: center;">Adicionar nova Postagens</h1>
+    
+<div class="jumbotron">
+<form name="newPostForm" id="addPost" ng-controller="postagensCtrl">
+
+
+    <select class="form-control" ng-model="post.usuarioId"
+    ng-options="us.id as us.name for us in usuarios" ng-controller="usuariosCtrl">
+    <option value="">Selecione o Usuario</option>
+</select>
+
+
+    <label for="Titulo"></label>
+    <input type="text" class="form-control" ng-model="post.titulo" placeholder="Titulo">
+
+    <label for="Body"></label>
+    <input type="text" class="form-control" ng-model="post.body" placeholder="body">
+
+    <button id="enviar" type="submit" class="btn btn-primary btn-block"  ng-click="adicionarPostagem(post)">Adicionar Nova Postagem</button>
+</div>

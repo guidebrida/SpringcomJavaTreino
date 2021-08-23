@@ -4,19 +4,30 @@
         <tr>
             <td>ID</td>
             <td>Data</td>
+            <td>Autor</td>
             <td>Titulo</td>
             <td>Corpo</td>
+            <td>Adicionar Comentarios</td>
             <td>Comentarios</td>
+            <td>Deletar</td>
         </tr>
         <tr ng-repeat="post in postagens">
             <td>{{post.id}}</td>
             <td>{{post.instante  | date:'dd/MM/yyyy HH:mm'}}</td>
+            <td>{{formatarAutor(post)}}</td>
             <td>{{post.titulo}}</td>
             <td>{{post.body}}</td>
+            <td> <form action="#/adicionarComentarios">
+                <button  type="submit" class="btn btn-light"  >Adicionar novo comentario</button>
+            </form></td>
+           
             <td>{{formatarComentarios(post)}}</td>
+            <td><button   ng-click="excluirPost(post.id)" class="btn btn-danger">Deletar Usuario</button></td>
+
         </tr>
     </table>
-        
+</div>
+<form action="#/novaPostagem" >
+    <button  type="submit"  class="btn btn-outline-success"  >Novo Comentario</button>
+</form>
 
-
-    </div>

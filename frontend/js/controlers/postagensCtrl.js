@@ -1,7 +1,6 @@
-angular.module("appPostagens").controller("postagensCtrl", function ($scope, postagensAPI) {
+angular.module("appPostagens").controller("postagensCtrl", function ($scope, postagensAPI, $location) {
     $scope.app = "appPostagens";
     $scope.post = {};
-
 
 
     var _formatarcomentarios = function (post) {
@@ -18,6 +17,27 @@ angular.module("appPostagens").controller("postagensCtrl", function ($scope, pos
             console.log( $scope.postagens)
         });
     };
+
+    $scope.adicionarPostagem  =function(post){
+        postagensAPI.postPostagens(post).then(function (data) {
+            delete $scope.post;
+            $location.path("/postagens")
+            $scope.newPostForm.$setPristine();
+            getPostagens(); 
+
+            
+        });
+    }
+
+        
+    $scope.excluirPost = function (postid) {
+   
+        console.log(postid)
+        postagensAPI.deletePostagens(postid).then(function (retorno)  {
+            
+        })
+}
+
 
 
     $scope.formatarComentarios = _formatarcomentarios;

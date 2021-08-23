@@ -9,12 +9,14 @@
     <td>Nome</td>
     <td>Email</td>
     <td>Postagens</td>
+    <td>Delete</td>
 </tr>
 <tr ng-repeat="us in usuarios">
     <td>{{us.id}}</td>
     <td>{{us.name}}</td>
     <td>{{us.email}}</td>
     <td>{{formatarUsuarios(us)}}</td>
+    <td><button class="btn btn-danger">Deletar Usuario</button></td>
 
 </tr>
 </table>

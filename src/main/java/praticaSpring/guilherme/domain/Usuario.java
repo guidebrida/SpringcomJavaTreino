@@ -12,24 +12,17 @@ import java.util.Objects;
 public class Usuario  implements Serializable {
     private static final long serialVersionUID = 1L;
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
     private String email;
 
-    @OneToMany( mappedBy = "usuario")
+    @OneToMany(mappedBy = "usuario")
     private List<Postagem> Postagem = new ArrayList<>();
-
 
     @OneToMany( mappedBy = "usuario")
     private List<Comentario> Comentario = new ArrayList<>();
-
-
-
-
-
 
     public Usuario() {
     }
@@ -38,7 +31,6 @@ public class Usuario  implements Serializable {
         this.name = name;
         this.email = email;
     }
-
 
     public List<praticaSpring.guilherme.domain.Postagem> getPostagem() {
         return Postagem;
